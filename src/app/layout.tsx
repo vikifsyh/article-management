@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import NextAuthProvider from "@/components/auth/authProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <NextAuthProvider>
+          {children}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: "#2563EB", // warna biru sesuai permintaan
+                color: "#ffffff", // teks putih agar kontras
+                padding: "12px 16px",
+                borderRadius: "8px",
+              },
+            }}
+          />
+        </NextAuthProvider>
       </body>
     </html>
   );
