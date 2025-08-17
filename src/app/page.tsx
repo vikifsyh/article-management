@@ -68,7 +68,7 @@ export default function Home() {
             </button>
           ) : (
             <button
-              onClick={() => signOut({ callbackUrl: "/" })}
+              onClick={() => signOut({ callbackUrl: "/login" })}
               className="bg-red-500 text-white px-4 py-2 rounded"
             >
               Logout
